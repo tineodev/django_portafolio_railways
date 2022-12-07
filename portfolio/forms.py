@@ -17,3 +17,11 @@ class NewUser(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class Project_form(forms.Form):
+    titulo = forms.CharField(max_length=100, required=False)
+    descripcion = forms.CharField(max_length=200, required=False)
+    foto_url = forms.URLField(required=False)
+    #!editar tags = forms.CharField(max_length=100, required=False)
+    github_url = forms.URLField(required=False)

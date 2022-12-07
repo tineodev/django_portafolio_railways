@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout/layout.html' %}
+
+
+{% block label_page %}List{% endblock label_page %}
+
+
+{% block style %}{% endblock style %}
+
+
+{% block body %}
+<body>
+  <section class="py-3 text-center container">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <p>
+        <a href="{% url 'index'%}" class="btn btn-primary my-2">Home</a>
+      </p>
+  </div>
+  </section>
+  <ul class="list-group">
+    {% for i in lista%}
+    <li class="list-group-item">{{i.titulo}}</li>
+    <li class="list-group-item">{{i.descripcion}}</li>
+    <hr><hr>
+    {% endfor %}
+  </ul>
+
+</body>
+{% endblock body %}
