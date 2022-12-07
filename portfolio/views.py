@@ -45,3 +45,9 @@ class CreateProject(FormView):
     def form_valid(self, form):
         Project_model.objects.create(**form.cleaned_data)
         return redirect('main')
+
+
+class DeleteDB(View):
+    def get(self,request):
+        Project_model.objects.all().delete()
+        return redirect('paginas')

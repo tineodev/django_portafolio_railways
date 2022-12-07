@@ -13,4 +13,5 @@ urlpatterns = [
 
     path('main_page/', views.Main_page.as_view(), name='main'),
     path('project/', views.CreateProject.as_view(), name='create_project'),
+    path('delete_db/', views.DeleteDB.as_view(), name='delete_db'),
 ]
