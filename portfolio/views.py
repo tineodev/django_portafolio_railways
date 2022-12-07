@@ -8,6 +8,11 @@ from .models import Project_model
 from .forms import Project_form
 # Create your views here.
 
+class paginas(View):
+    def get(self, request):
+        template_name = 'portfolio/paginas.html'
+        return render(request, template_name)
+
 class Index(View):
     def get(self, request):
         template_name = 'portfolio/index2.html'
