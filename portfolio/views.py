@@ -23,3 +23,4 @@ class SignUp(CreateView):
 class Main(View):
     def get(self, request):
         return render()
+        # ! completar
