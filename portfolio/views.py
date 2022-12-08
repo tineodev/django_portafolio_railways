@@ -42,13 +42,14 @@ class Main_page(View):
         ip_user, ip_boolean = get_client_ip(request)
         res = IPs_model(ip = ip_user)
         res.save()
+
         return render(request, template_name, extra_context)
 
 
 class CreateProject(LoginRequiredMixin,FormView):
     model = Project_model
     form_class = Project_form
-    template_name = 'portfolio/project.html'
+    template_name = 'portfolio/add_project.html'
 
     def form_valid(self, form):
         Project_model.objects.create(**form.cleaned_data)

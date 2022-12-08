@@ -1,28 +1,33 @@
 {% extends 'portfolio/layout/layout.html' %}
 
-{% block label_page %}Sign Up{% endblock label_page %}
+
+{% block label_page %}Add project{% endblock label_page %}
 
 {% block li_nav %}
 <li class="nav-item"><a class="nav-link" href="{% url 'main' %}"><strong>Portfolio</strong></a></li>
-<li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
+{% if request.user.is_authenticated %}
+  <li class="nav-item"><a class="nav-link" href="#"><strong>Welcome, {{request.user.username}}</strong></a></li>
+  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+{% endif %}
 {% endblock li_nav %}
+
 
 {% block body %}
 
 <section>
   <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-      <div class="card bg-dark text-white fondo_register" style="border-radius: 1rem;">
+      <div class="card bg-success text-white  fondo_project" style="border-radius: 1rem;">
         <div class="card-body p-5">
 
-          <h2 class="fw-bold mb-2 text-uppercase text-center">Sign Up</h2>
+          <h2 class="fw-bold mb-2 text-uppercase text-center">Add Project</h2>
           <p class="text-white-50 mb-3 text-center">It's quick and easy</p>
 
           <form method='post' novalidate>
             {% csrf_token %}
             {{form.as_p}}
             <div class="col-12 d-grid mt-5">
-              <button class="btn btn-warning btn-lg px-5" type="submit">Register User</button>
+              <button class="btn btn-warning btn-lg px-5" type="submit">Save Project</button>
             </div>
           </form>
 
