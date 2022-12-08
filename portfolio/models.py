@@ -11,7 +11,13 @@ class Project_model(models.Model):
 
     def __str__(self):
         return self.titulo + self.tags
+    
+    class Meta:
+        db_table = 'Proyectos'
 
 class IPs_model(models.Model):
     ip = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'IP'
 

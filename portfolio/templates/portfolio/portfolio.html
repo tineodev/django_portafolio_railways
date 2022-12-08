@@ -1,7 +1,7 @@
 {% extends 'portfolio/layout/layout.html' %}
 {% load static %}
 
-{% block label_page %}List{% endblock label_page %}
+{% block label_page %}Portfolio{% endblock label_page %}
 
 
 {% block style %}
@@ -24,10 +24,11 @@
               <li class="nav-item"><a class="nav-link text-dark" href="{% url 'main' %}">Portfolio</a></li>
               <li class="nav-item"><a class="nav-link text-dark" href="{% url 'create_project' %}">Add project</a></li>
               {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link text-dark" href="#"><strong>Welcome, {{request.user.username}}</strong></a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="{% url 'logout' %}">Logout</a></li>
-              {% else %}
+              {% comment %} {% else %}
                 <li class="nav-item"><a class="nav-link text-dark" href="{% url 'register' %}">Sign Up</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}"><strong>Log In</strong></a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}"><strong>Log In</strong></a></li> {% endcomment %}
               {% endif %}
           </ul>
       </div>

@@ -19,7 +19,7 @@ class paginas(View):
 
 class Index(View):
     def get(self, request):
-        template_name = 'portfolio/index2.html'
+        template_name = 'portfolio/index.html'
         return render(request, template_name)
 
 
@@ -32,9 +32,9 @@ class SignUp(CreateView):
         return redirect('login')
 
 
-class Main_page(LoginRequiredMixin,View):
+class Main_page(View):
     def get(self, request):
-        template_name='portfolio/main.html'
+        template_name='portfolio/portfolio.html'
         extra_context ={
             'lista': Project_model.objects.all()
         }
