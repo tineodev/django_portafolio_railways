@@ -1,5 +1,5 @@
 {% extends 'portfolio/layout/layout.html' %}
-
+{% load static %}
 
 {% block label_page %}List{% endblock label_page %}
 
@@ -11,17 +11,30 @@
 
 
 {% block body %}
-<section class="py-3 text-center container p-0">
-  <div class="col-lg-6 col-md-8 mx-auto">
-    <p>
-      <a href="{% url 'index'%}" class="btn btn-warning my-2">Home</a>
-    </p>
-</div>
-</section>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bar_layout" id="mainNav">
+  <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/navbar-logo.svg'%}" alt="..." /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars ms-1"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 text-dark">
+              <li class="nav-item"><a class="nav-link text-dark" href="http://127.0.0.1:8000/#features">Features</a></li>
+              <li class="nav-item"><a class="nav-link text-dark" href="{% url 'main' %}">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link text-dark" href="{% url 'create_project' %}">Add project</a></li>
+              {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'register' %}">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="{% url 'login' %}"><strong>Log In</strong></a></li>
+              {% endif %}
+          </ul>
+      </div>
+  </div>
+</nav>
 
-
-<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
-
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5 body_main pt-5">
   {% for i in lista%}
   <div class="col">
     <div class="card">
