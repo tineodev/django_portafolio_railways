@@ -4,7 +4,7 @@ from django.db import models
 
 class Project_model(models.Model):
     titulo = models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=400)
     foto_url = models.URLField(max_length=200)
     tags = models.CharField(max_length=100, null=True)
     github_url = models.URLField(max_length=200)

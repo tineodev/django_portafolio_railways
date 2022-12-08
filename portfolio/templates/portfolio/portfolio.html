@@ -23,7 +23,14 @@
       <img src="{{i.foto_url}}" class="card-img-top m-auto p-2" alt="proyecto{{i.id}}" style='width:300px'>
       <div class="card-body">
         <h5 class="card-title">{{i.titulo}}</h5>
-        <p class="card-text">{{i.descripcion}}</p>
+        <p class="card-text" style='text-align: justify;'>
+          {% if i.descripcion|length < 70 %}
+            {{i.descripcion}}
+          {% else %}
+            {{i.descripcion|slice:70}}...
+          {% endif %}
+        </p>
+        <a href="{% url 'view_project' id=i.id %}"><button class='btn btn-warning'>Details</button></a>
       </div>
     </div>
   </div>

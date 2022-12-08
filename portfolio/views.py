@@ -60,3 +60,12 @@ class DeleteDB(View):
     def get(self,request):
         Project_model.objects.get(id=19).delete()
         return redirect('paginas')
+
+
+class ViewDB(View):
+    def get(self, request,id):
+        template_name = 'portfolio/view_project.html'
+        extra_context ={
+            'project': Project_model.objects.get(id=id)
+        }
+        return render(request, template_name, extra_context)
