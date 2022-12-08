@@ -4,10 +4,12 @@ from django.views.generic import View, CreateView
 from .forms import NewUser
 
 from django.views.generic import FormView
-from .models import Project_model
+from .models import Project_model, IPs_model
 from .forms import Project_form
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from ipware import get_client_ip
 # Create your views here.
 
 class paginas(View):
@@ -36,6 +38,10 @@ class Main_page(LoginRequiredMixin,View):
         extra_context ={
             'lista': Project_model.objects.all()
         }
+
+        ip_user, ip_boolean = get_client_ip(request)
+        res = IPs_model(ip = ip_user)
+        res.save()
         return render(request, template_name, extra_context)
 
 

@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'portfolio.middleware.is_valid_ip',
 ]
 
 ROOT_URLCONF = 'zproject.urls'
@@ -125,5 +126,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Sessions
-LOGIN_URL = 'index'
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'main'
