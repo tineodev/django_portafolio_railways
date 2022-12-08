@@ -11,16 +11,16 @@
 
 
 {% block body %}
-<section class="py-3 text-center container">
+<section class="py-3 text-center container p-0">
   <div class="col-lg-6 col-md-8 mx-auto">
     <p>
-      <a href="{% url 'paginas'%}" class="btn btn-warning my-2">Home</a>
+      <a href="{% url 'index'%}" class="btn btn-warning my-2">Home</a>
     </p>
 </div>
 </section>
 
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
 
   {% for i in lista%}
   <div class="col">

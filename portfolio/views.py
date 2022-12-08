@@ -6,6 +6,8 @@ from .forms import NewUser
 from django.views.generic import FormView
 from .models import Project_model
 from .forms import Project_form
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class paginas(View):
@@ -28,7 +30,7 @@ class SignUp(CreateView):
         return redirect('login')
 
 
-class Main_page(View):
+class Main_page(LoginRequiredMixin,View):
     def get(self, request):
         template_name='portfolio/main.html'
         extra_context ={
@@ -37,7 +39,7 @@ class Main_page(View):
         return render(request, template_name, extra_context)
 
 
-class CreateProject(FormView):
+class CreateProject(LoginRequiredMixin,FormView):
     model = Project_model
     form_class = Project_form
     template_name = 'portfolio/project.html'
@@ -49,5 +51,5 @@ class CreateProject(FormView):
 
 class DeleteDB(View):
     def get(self,request):
-        Project_model.objects.all().delete()
+        Project_model.objects.get(id=19).delete()
         return redirect('paginas')

@@ -125,5 +125,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Sessions
-LOGIN_URL = 'paginas'
-LOGIN_REDIRECT_URL = 'paginas'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'main'

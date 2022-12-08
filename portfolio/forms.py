@@ -20,8 +20,8 @@ class NewUser(UserCreationForm):
 
 
 class Project_form(forms.Form):
-    titulo = forms.CharField(max_length=100, required=False)
-    descripcion = forms.CharField(max_length=200, required=False)
-    foto_url = forms.URLField(required=False)
-    #!editar tags = forms.CharField(max_length=100, required=False)
-    github_url = forms.URLField(required=False)
+    titulo = forms.CharField(max_length=100, required=True)
+    descripcion = forms.CharField(max_length=200, required=True)
+    foto_url = forms.URLField(required=True)
+    tags = forms.CharField(max_length=100, required=True)
+    github_url = forms.URLField(required=True)
