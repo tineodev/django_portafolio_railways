@@ -39,7 +39,7 @@ Crear archivo <code>SQLite3</code> para la base de datos
 touch db.sqlite3
 ```
 
-Crear archivo <code>.env</code> para variables de entorno
+Crear archivo <code>.env</code> en la misma carpeta que <code>zproject</code> para variables de entorno
 ```bash
 touch .env
 ```
